@@ -1,10 +1,12 @@
 <!-- views/user/edit.php -->
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Modifier l'utilisateur</title>
 </head>
+
 <body>
     <h1>Modifier l'utilisateur</h1>
     <form action="/user/<?php echo $user->getId_user(); ?>/update" method="POST">
@@ -16,9 +18,15 @@
 
         <label for="password">Mot de passe :</label>
         <input type="password" id="password" name="password" value="<?php echo htmlspecialchars($user->getPassword_user()); ?>" required>
+        <?php if (!empty($message)): ?>
+            <div class="message">
+                <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
 
         <button type="submit">Mettre à jour</button>
     </form>
     <a href="/users">Retour à la liste des utilisateurs</a>
 </body>
+
 </html>

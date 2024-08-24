@@ -54,7 +54,19 @@ class UserDAO
 
         return null;
     }
-
+    public function findByUsername(string $username): ?UserModel
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt->execute(['username' => $username]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if ($row) {
+            return $this->mapToUser($row);
+        }
+    
+        return null;
+    }
+    
     /**
      * Crée un nouvel utilisateur dans la base de données.
      *
@@ -119,7 +131,8 @@ class UserDAO
             $row['username'],
             $row['email_user'],
             $row['password_user'],
-            new DateTime($row['create_at'])
+            new DateTime($row['create_at']),
+            $row['role_user']
         );
     }
 

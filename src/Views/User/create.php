@@ -18,6 +18,11 @@ ob_start();
 
     <button type="submit">Créer</button>
 </form>
+<?php if (!empty($message)): ?>
+    <div class="message">
+        <?= htmlspecialchars($message) ?>
+    </div>
+<?php endif; ?>
 
 <a href="/users">Retour à la liste des utilisateurs</a>
 

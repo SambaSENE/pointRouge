@@ -45,14 +45,17 @@ class UserModel
      * @param string $email_user L'adresse e-mail de l'utilisateur.
      * @param string $password_user Le mot de passe de l'utilisateur.
      * @param DateTime $create_at La date de création de l'utilisateur.
+     * @param string $role_user La date de création de l'utilisateur.
      */
-    public function __construct(int $id_user, string $username, string $email_user, string $password_user, DateTime $create_at)
+    public function __construct(int $id_user, string $username, string $email_user, string $password_user, DateTime $create_at , string $role_user)
     {
         $this->id_user = $id_user;
         $this->username = $username;
         $this->email_user = $email_user;
         $this->password_user = $password_user;
         $this->create_at = $create_at;
+        $this->role_user = $role_user;
+        
     }
 
 
